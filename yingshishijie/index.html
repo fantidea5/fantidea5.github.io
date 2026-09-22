@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="影视世界诸天大佬 - 汇聚诸天万界顶级大佬的影视宇宙探索指南。提供热门影视解析、诸天系统攻略、跨界角色战力对比及影视综漫阅读推荐。">
+    <meta name="keywords" content="影视世界诸天大佬,影视综漫,诸天系统,影视攻略,大佬流小说,跨界角色">
+    <title>影视世界诸天大佬-诸天万界影视综漫探索指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0b0c15;
+            --card-bg: #151621;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0b0;
+            --accent-primary: #7b61ff;
+            --accent-secondary: #00d2ff;
+            --accent-hot: #ff4757;
+            --border-color: #2a2b3a;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-primary);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-unit);
+            padding-left: 12px;
+            border-left: 4px solid var(--accent-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            font-weight: normal;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(11, 12, 21, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent-primary), #5a42d9);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(to right, rgba(11, 12, 21, 0.9), rgba(11, 12, 21, 0.6)), url('https://picsum.photos/seed/cyberpunk/1920/1080') no-repeat center/cover;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(0, 210, 255, 0.15);
+            color: var(--accent-secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* List Layout */
+        .media-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .media-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .media-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-primary);
+        }
+
+        .card-cover {
+            width: 160px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--accent-hot);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .meta-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #b0b0c0;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 12px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--accent-primary);
+        }
+
+        .author-name {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .card-stats {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .widget {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 12px;
+            color: var(--text-sub);
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: var(--accent-hot); color: white; }
+        .rank-list li:nth-child(2) .rank-num { background: #ff9f43; color: white; }
+        .rank-list li:nth-child(3) .rank-num { background: #feca57; color: #333; }
+
+        .rank-title {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rank-score {
+            font-size: 0.8rem;
+            color: var(--accent-secondary);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+            background: rgba(0, 210, 255, 0.05);
+        }
+
+        /* System Guide Section */
+        .guide-section {
+            background: linear-gradient(180deg, var(--card-bg) 0%, rgba(11, 12, 21, 0) 100%);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-primary);
+        }
+
+        .guide-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .guide-card p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #080910;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            margin-top: 16px;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card-cover {
+                width: 120px;
+            }
+            .hero {
+                height: 400px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">诸天影视</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">首页</a></li>
+                    <li><a href="#" class="nav-link">综漫推荐</a></li>
+                    <li><a href="#" class="nav-link">系统攻略</a></li>
+                    <li><a href="#" class="nav-link">角色图鉴</a></li>
+                    <li><a href="#" class="nav-link">影视解析</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">投稿作品</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-tag">探索无限可能</span>
+                    <h1>影视世界诸天大佬</h1>
+                    <p>从漫威宇宙的超级英雄到赛博朋克的未来都市，在这里，我们解析诸天万界的系统流剧情，探索跨界融合的无限可能。</p>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-primary">开始探索</button>
+                        <button class="btn btn-outline">阅读榜单</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-grid">
+                <!-- Main Content -->
+                <div class="content-area">
+                    <div class="section-title">
+                        热门综漫推荐
+                        <span>最新更新 · 精选</span>
+                    </div>
+                    
+                    <div class="media-list">
+                        <!-- Article 1 -->
+                        <article class="media-card">
+                            <div class="card-cover">
+                                <img src="https://picsum.photos/seed/spiderman/300/400" alt="蜘蛛侠封面">
+                                <span class="card-badge">HOT</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <div class="card-header">
+                                        <h2 class="card-title"><a href="#">漫威之超级蜘蛛</a></h2>
+                                        <span class="meta-tag">科幻</span>
+                                    </div>
+                                    <p class="card-desc">穿越到漫威宇宙，获得蜘蛛侠能力与无限宝石系统。在多元宇宙中建立自己的蜘蛛帝国，对抗灭霸，重塑英雄联盟。</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="author-info">
+                                        <div class="author-avatar"></div>
+                                        <span class="author-name">暗夜行者</span>
+                                    </div>
+                                    <div class="card-stats">
+                                        <span>12.5万阅读</span>
+                                        <span>3,402评论</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article 2 -->
+                        <article class="media-card">
+                            <div class="card-cover">
+                                <img src="https://picsum.photos/seed/detective/300/400" alt="侦探封面">
+                                <span class="card-badge" style="background: var(--accent-secondary);">NEW</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <div class="card-header">
+                                        <h2 class="card-title"><a href="#">名侦探的无限世界</a></h2>
+                                        <span class="meta-tag">悬疑</span>
+                                    </div>
+                                    <p class="card-desc">柯南世界的名侦探，如何应对《犯罪心理》中的连环杀手？在《神探夏洛克》中挑战贝克街的幽灵。智斗升级，逻辑至上。</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="author-info">
+                                        <div class="author-avatar" style="background: var(--accent-secondary);"></div>
+                                        <span class="author-name">逻辑之神</span>
+                                    </div>
+                                    <div class="card-stats">
+                                        <span>8.2万阅读</span>
+                                        <span>1,102评论</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article 3 -->
+                        <article class="media-card">
+                            <div class="card-cover">
+                                <img src="https://picsum.photos/seed/warhammer/300/400" alt="战锤封面">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <div class="card-header">
+                                        <h2 class="card-title"><a href="#">战锤40K：机械神教</a></h2>
+                                        <span class="meta-tag">史诗</span>
+                                    </div>
+                                    <p class="card-desc">穿越至黑暗未来，成为机械神教的大贤者。掌握黑石引擎，复活帝皇，在星界军的掩护下对抗异形与混沌的侵袭。</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="author-info">
+                                        <div class="author-avatar" style="background: #ff4757;"></div>
+                                        <span class="author-name">星际战士</span>
+                                    </div>
+                                    <div class="card-stats">
+                                        <span>15.1万阅读</span>
+                                        <span>5,600评论</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="widget">
+                        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">本周战力榜</h3>
+                        <ul class="rank-list">
+                            <li>
+                                <span class="rank-num">1</span>
+                                <span class="rank-title">灭霸（响指前）</span>
+                                <span class="rank-score">9.9</span>
+                            </li>
+                            <li>
+                                <span class="rank-num">2</span>
+                                <span class="rank-title">路明非（龙王级）</span>
+                                <span class="rank-score">9.8</span>
+                            </li>
+                            <li>
+                                <span class="rank-num">3</span>
+                                <span class="rank-title">兰博洛斯</span>
+                                <span class="rank-score">9.7</span>
+                            </li>
+                            <li>
+                                <span class="rank-num">4</span>
+                                <span class="rank-title">藤原拓海</span>
+                                <span class="rank-score">9.5</span>
+                            </li>
+                            <li>
+                                <span class="rank-num">5</span>
+                                <span class="rank-title">陈平安（剑气长城）</span>
+                                <span class="rank-score">9.4</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">热门标签</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">无限流</a>
+                            <a href="#" class="tag">签到系统</a>
+                            <a href="#" class="tag">火影忍者</a>
+                            <a href="#" class="tag">海贼王</a>
+                            <a href="#" class="tag">哈利波特</a>
+                            <a href="#" class="tag">克苏鲁</a>
+                            <a href="#" class="tag">赛博朋克</a>
+                            <a href="#" class="tag">金庸武侠</a>
+                        </div>
+                    </div>
+
+                    <div class="widget">
+                        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">阅读指南</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 12px;">
+                            本站汇聚各类影视综漫同人作品，欢迎各位大佬投稿。
+                        </p>
+                        <ul style="font-size: 0.9rem; color: var(--text-sub);">
+                            <li style="margin-bottom: 8px;">• 请遵守相关版权法律法规</li>
+                            <li style="margin-bottom: 8px;">• 角色战力仅供参考，请以原著为准</li>
+                            <li style="margin-bottom: 8px;">• 发现违规内容请点击举报</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- System Guide Section -->
+            <section class="guide-section">
+                <div class="section-title">
+                    常见诸天体系解析
+                    <span>了解流派 · 寻找共鸣</span>
+                </div>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h3>面板系统</h3>
+                        <p>通过面板查看自身属性、任务进度及奖励兑换。是诸天流最经典的设定，强调数据化带来的成就感。</p>
+                    </div>
+                    <div class="guide-card">
+                        <h3>签到流</h3>
+                        <p>每天在不同影视世界签到，获得对应世界的货币、物品或特殊能力。节奏轻松，适合休闲阅读。</p>
+                    </div>
+                    <div class="guide-card">
+                        <h3>反派流</h3>
+                        <p>扮演经典反派角色，利用剧情漏洞逆袭。打破传统英雄叙事，带来爽感十足的颠覆体验。</p>
+                    </div>
+                    <div class="guide-card">
+                        <h3>历史流</h3>
+                        <p>穿越到真实历史时期，改写朝代更迭，运筹帷幄之中。强调权谋、军事与历史的厚重感。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">诸天影视</a>
+                    <p>专注于影视综漫领域的同人小说探索与解析平台，为读者提供最新、最全的诸天世界内容。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>热门频道</h4>
+                    <ul>
+                        <li><a href="#">漫威宇宙</a></li>
+                        <li><a href="#">哈利波特</a></li>
+                        <li><a href="#">龙族系列</a></li>
+                        <li><a href="#">全职高手</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博话题</a></li>
+                        <li><a href="#">读者群</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 诸天影视探索指南. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
