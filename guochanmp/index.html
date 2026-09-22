@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="国产mpv最新车型评测、购车指南与价格对比。涵盖五菱宏光、传祺M8、腾势D9、岚图梦想家等热门国产MPV的配置参数、空间表现及口碑推荐。">
+    <meta name="keywords" content="国产mpv,五菱宏光,传祺M8,腾势D9,国产MPV推荐,国产MPV评测">
+    <title>国产mpv-热门车型推荐与购车选购指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c92a2a;
+            --secondary-color: #343a40;
+            --accent-color: #f08c00;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-sub: #6c757d;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-sub);
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-sub);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #343a40 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #adb5bd;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px 0 0 50px;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: var(--card-bg);
+            padding: 1rem 0;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 10;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-list {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .filter-item {
+            padding: 0.4rem 1rem;
+            background: #f1f3f5;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-item.active, .filter-item:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Grid Layouts */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Car Card */
+        .car-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 180px;
+            background-color: #e9ecef;
+            object-fit: cover;
+        }
+
+        .car-content {
+            padding: 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .car-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-tags {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: #f1f3f5;
+            color: var(--text-sub);
+        }
+
+        .tag.featured {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 0.8rem 0;
+        }
+
+        .spec-item strong {
+            display: block;
+            color: var(--text-main);
+        }
+
+        .car-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price small {
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+
+        /* Comparison Table */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        td {
+            color: var(--text-main);
+        }
+
+        .check-icon {
+            color: #28a745;
+        }
+
+        /* Guide Section */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .guide-content h3 {
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .guide-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .guide-sidebar {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            height: fit-content;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #adb5bd;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #495057;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .guide-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .section-title { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo">国产MPV之家</div>
+        <nav class="nav-links">
+            <a href="#">车型大全</a>
+            <a href="#">热门榜单</a>
+            <a href="#">购车指南</a>
+            <a href="#">试驾评测</a>
+            <a href="#">价格查询</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>国产MPV：重新定义家庭出行与商务接待</h1>
+        <p>从五菱宏光MINI EV到腾势D9，深入解析当前市场上最热门的国产MPV车型。我们为您提供详尽的配置对比、真实的油耗数据以及专业的购车建议。</p>
+        <div class="search-box">
+            <input type="text" placeholder="搜索车型，例如：传祺M8、GL8...">
+            <button>搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="filter-bar">
+    <div class="container">
+        <ul class="filter-list">
+            <li class="filter-item active">综合排序</li>
+            <li class="filter-item">销量榜</li>
+            <li class="filter-item">关注度</li>
+            <li class="filter-item">新能源</li>
+            <li class="filter-item">7座</li>
+            <li class="filter-item">30万以内</li>
+        </ul>
+    </div>
+</div>
+
+<main class="container">
+    
+    <!-- Section 1: Trending Models -->
+    <section class="section">
+        <div class="section-title">
+            <h2>热门国产MPV推荐</h2>
+            <span>基于近期市场热度与用户口碑精选</span>
+        </div>
+        <div class="grid-4">
+            <!-- Car 1 -->
+            <article class="car-card">
+                <img src="https://picsum.photos/seed/tean9/400/300" alt="腾势D9" class="car-image">
+                <div class="car-content">
+                    <h3 class="car-title">腾势D9 DM-i</h3>
+                    <div class="car-tags">
+                        <span class="tag featured">销量冠军</span>
+                        <span class="tag">插电混动</span>
+                    </div>
+                    <div class="car-specs">
+                        <div class="spec-item"><strong>指导价</strong>33.5-43.98万</div>
+                        <div class="spec-item"><strong> seats</strong>7座</div>
+                        <div class="spec-item"><strong>油耗</strong>5.7L/100km</div>
+                        <div class="spec-item"><strong>动力</strong>1.5T插混</div>
+                    </div>
+                    <div class="car-footer">
+                        <div class="price">33.5<span>万起</span></div>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Car 2 -->
+            <article class="car-card">
+                <img src="https://picsum.photos/seed/gm8/400/300" alt="传祺M8" class="car-image">
+                <div class="car-content">
+                    <h3 class="car-title">传祺M8 Super</h3>
+                    <div class="car-tags">
+                        <span class="tag">豪华商务</span>
+                        <span class="tag">燃油</span>
+                    </div>
+                    <div class="car-specs">
+                        <div class="spec-item"><strong>指导价</strong>30.28-40.58万</div>
+                        <div class="spec-item"><strong> seats</strong>7座</div>
+                        <div class="spec-item"><strong>油耗</strong>8.5L/100km</div>
+                        <div class="spec-item"><strong>动力</strong>2.0T</div>
+                    </div>
+                    <div class="car-footer">
+                        <div class="price">30.28<span>万起</span></div>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Car 3 -->
+            <article class="car-card">
+                <img src="https://picsum.photos/seed/gl6/400/300" alt="别克GL6" class="car-image">
+                <div class="car-content">
+                    <h3 class="car-title">别克GL6</h3>
+                    <div class="car-tags">
+                        <span class="tag">入门首选</span>
+                        <span class="tag">小型MPV</span>
+                    </div>
+                    <div class="car-specs">
+                        <div class="spec-item"><strong>指导价</strong>16.69-18.69万</div>
+                        <div class="spec-item"><strong> seats</strong>6座</div>
+                        <div class="spec-item"><strong>油耗</strong>6.4L/100km</div>
+                        <div class="spec-item"><strong>动力</strong>1.3T</div>
+                    </div>
+                    <div class="car-footer">
+                        <div class="price">16.69<span>万起</span></div>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Car 4 -->
+            <article class="car-card">
+                <img src="https://picsum.photos/seed/magicbox/400/300" alt="五菱佳辰" class="car-image">
+                <div class="car-content">
+                    <h3 class="car-title">五菱佳辰</h3>
+                    <div class="car-tags">
+                        <span class="tag">家用首选</span>
+                        <span class="tag">大空间</span>
+                    </div>
+                    <div class="car-specs">
+                        <div class="spec-item"><strong>指导价</strong>8.58-11.58万</div>
+                        <div class="spec-item"><strong> seats</strong>6座</div>
+                        <div class="spec-item"><strong>油耗</strong>6.8L/100km</div>
+                        <div class="spec-item"><strong>动力</strong>1.5T</div>
+                    </div>
+                    <div class="car-footer">
+                        <div class="price">8.58<span>万起</span></div>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section 2: Comparison -->
+    <section class="section" style="background-color: #f1f3f5;">
+        <div class="section-title">
+            <h2>核心车型参数对比</h2>
+            <span>直观了解不同车型的配置差异</span>
+        </div>
+        <div class="comparison-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>车型</th>
+                        <th>价格区间</th>
+                        <th>动力类型</th>
+                        <th>座椅布局</th>
+                        <th>智能配置</th>
+                        <th>适合场景</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>腾势D9</strong></td>
+                        <td>33.5万 - 43.98万</td>
+                        <td>DM-i插混 / 纯电EV</td>
+                        <td>2/2/3 / 2/3/2</td>
+                        <td>DiLink 4.0、高阶智驾辅助</td>
+                        <td>家庭长途、商务接待</td>
+                    </tr>
+                    <tr>
+                        <td><strong>传祺M8</strong></td>
+                        <td>30.28万 - 40.58万</td>
+                        <td>2.0T 燃油 / 2.0T 燃油+48V</td>
+                        <td>2/2/3 / 2/3/2</td>
+                        <td>GPS导航、后排娱乐屏</td>
+                        <td>高端商务、中产家庭</td>
+                    </tr>
+                    <tr>
+                        <td><strong>岚图梦想家</strong></td>
+                        <td>28.98万 - 38.98万</td>
+                        <td>增程 / 纯电</td>
+                        <td>2/2/3 / 2/3/2</td>
+                        <td>ADAS高级驾驶辅助</td>
+                        <td>高端家庭、科技体验</td>
+                    </tr>
+                    <tr>
+                        <td><strong>五菱佳辰</strong></td>
+                        <td>8.58万 - 11.58万</td>
+                        <td>1.5T 燃油</td>
+                        <td>2/2/2 / 2/3/2</td>
+                        <td>车联网、倒车影像</td>
+                        <td>家庭用车、创业初期</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 3: Buying Guide -->
+    <section class="section">
+        <div class="section-title">
+            <h2>国产MPV购车指南</h2>
+            <span>如何选择最适合您的座驾</span>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-content">
+                <h3>1. 确定预算与用途</h3>
+                <p>国产MPV市场目前竞争激烈，价格覆盖从8万到50万不等。如果您主要用于城市通勤和接送孩子，预算在15万以内的五菱宏光V、佳辰或GL6是经济实惠的选择；如果是家庭长途旅行或商务接待，预算在30万以上的腾势D9、传祺M8或岚图梦想家能提供更舒适的乘坐体验和更高级的配置。</p>
+                
+                <h3>2. 关注动力形式</h3>
+                <p>目前国产MPV主要分为燃油、插电混动（PHEV）和纯电动（EV）三种形式。插电混动车型（如腾势D9、赛那/格瑞维亚的国产替代品）兼顾了长途续航和城市低油耗，是目前市场的主流选择。纯电MPV（如极氪009）则更适合充电便利且对环保有要求的用户。</p>
+                
+                <h3>3. 重视空间与舒适性</h3>
+                <p>MPV的核心价值在于空间。在试驾时，请重点体验后排座椅的舒适度、进出便利性以及后备箱的装载能力。对于有老人小孩的家庭，第二排的独立座椅、腿托和通风加热功能至关重要。</p>
+            </div>
+            
+            <aside class="guide-sidebar">
+                <div class="section-title" style="font-size: 1.2rem; border-left: none; padding-left: 0;">常见问题 (FAQ)</div>
+                
+                <div class="faq-item">
+                    <h4>国产MPV和合资MPV有什么区别？</h4>
+                    <p>国产MPV在空间利用率、智能化配置以及价格上具有明显优势，内饰材质和配置通常更丰富。合资MPV（如别克GL8）在品牌保值率和底盘滤震调校上经验更丰富。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>国产MPV油耗高吗？</h4>
+                    <p>这取决于车型。纯燃油MPV油耗较高，一般在8-10L/100km；而插电混动和纯电MPV在市区工况下油耗极低，非常适合家用。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>MPV后排中间地台高吗？</h4>
+                    <p>现在主流的国产MPV（如D9、M8、理想MEGA）中间地台基本都已平整，第五排进出方便，这是相比传统商务车的一大进步。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>MPV年检麻烦吗？</h4>
+                    <p>非营运的小、微型非载货汽车（面包车除外）6年内免上线年检，仅需每两年申领一次检验标志。超过6年需每年上线检测。</p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">国产MPV之家</div>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    致力于为消费者提供最准确、最全面的国产MPV车型资讯、评测与购车服务。我们相信国产MPV正在崛起，值得您的关注。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>车型分类</h4>
+                <ul>
+                    <li><a href="#">MPV排行榜</a></li>
+                    <li><a href="#">新能源MPV</a></li>
+                    <li><a href="#">高端商务MPV</a></li>
+                    <li><a href="#">家用入门MPV</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>实用工具</h4>
+                <ul>
+                    <li><a href="#">购车计算器</a></li>
+                    <li><a href="#">油耗计算器</a></li>
+                    <li><a href="#">贷款计算器</a></li>
+                    <li><a href="#">二手车估价</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>合作咨询：contact@domesticmpv.com</li>
+                    <li>用户反馈：feedback@domesticmpv.com</li>
+                    <li>地址：中国某汽车产业园区</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 国产MPV之家. All Rights Reserved. 本网站内容仅供参考，具体价格请以4S店为准。
+        </div>
+    </div>
+</footer>
+
+</body>
+          </html>
