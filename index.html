@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="黑丝美女美图 - 汇集高清美图、穿搭技巧与时尚资讯，提供最新、最优质的视觉盛宴与审美分享。">
+    <meta name="keywords" content="黑丝美女美图,黑丝穿搭,时尚美图,高清美女写真,视觉盛宴">
+    <title>黑丝美女美图-精选视觉盛宴与时尚穿搭指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4a373;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 4px;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-color: #e0e0e0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/fashion_hero/1600/900') no-repeat center center/cover;
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            padding: var(--spacing-lg);
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #b08d5e;
+            transform: translateY(-2px);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: var(--spacing-lg) auto;
+            padding: 0 var(--spacing-lg);
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--spacing-lg);
+        }
+
+        /* Main Content */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .section-title a:hover {
+            color: var(--accent-color);
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--bg-color);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .tag:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .hot-list li {
+            margin-bottom: var(--spacing-sm);
+            border-bottom: 1px dashed #eee;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hot-list a {
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hot-list .rank {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--accent-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .header-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            nav ul {
+                gap: var(--spacing-md);
+                font-size: 0.9rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">黑丝<span>美图</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">高清写真</a></li>
+                    <li><a href="#">穿搭指南</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">摄影技巧</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索美图...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>探索视觉之美</h1>
+                <p>汇聚全球精选时尚美图，为您呈现黑丝穿搭的无限可能。</p>
+                <a href="#" class="btn">立即浏览</a>
+            </div>
+        </section>
+
+        <section class="container">
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="features">
+                    <article class="feature-item">
+                        <div class="feature-icon">✨</div>
+                        <h3>高清画质</h3>
+                        <p>严格筛选每一张图片，确保极致的视觉体验。</p>
+                    </article>
+                    <article class="feature-item">
+                        <div class="feature-icon">👗</div>
+                        <h3>时尚穿搭</h3>
+                        <p>解析当下最流行的搭配风格与技巧。</p>
+                    </article>
+                    <article class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>创意摄影</h3>
+                        <p>分享光影艺术与构图美学，激发灵感。</p>
+                    </article>
+                </div>
+
+                <div class="section-title">
+                    <h2>最新美图</h2>
+                    <a href="#">查看更多 &raquo;</a>
+                </div>
+
+                <div class="grid-gallery">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/fashion1/400/500" alt="时尚美图" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">都市丽人：秋日街头风</h3>
+                            <div class="card-meta">
+                                <span>2023-10-24</span>
+                                <span>浏览 1.2w</span>
+                            </div>
+                            <p class="card-desc">在繁华的都市背景下，展现现代女性的独立与优雅，深色丝袜与风衣的完美结合。</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/fashion2/400/500" alt="时尚美图" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">复古咖啡馆时光</h3>
+                            <div class="card-meta">
+                                <span>2023-10-23</span>
+                                <span>浏览 8.5k</span>
+                            </div>
+                            <p class="card-desc">慵懒的午后，一杯拿铁，一张复古海报，捕捉生活中的小确幸与温柔瞬间。</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/fashion3/400/500" alt="时尚美图" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">优雅晚宴穿搭</h3>
+                            <div class="card-meta">
+                                <span>2023-10-22</span>
+                                <span>浏览 9.1k</span>
+                            </div>
+                            <p class="card-desc">正式场合下的着装指南，如何通过配饰和色彩搭配提升整体气质。</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/fashion4/400/500" alt="时尚美图" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">春日清新系列</h3>
+                            <div class="card-meta">
+                                <span>2023-10-21</span>
+                                <span>浏览 2.3w</span>
+                            </div>
+                            <p class="card-desc">打破沉闷，用明亮的色彩和轻盈的材质迎接春天的到来。</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-title" style="margin-top: 40px;">
+                    <h2>热门专题</h2>
+                </div>
+                
+                <div class="grid-gallery">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/topic1/400/500" alt="专题" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">职场通勤风</h3>
+                            <p class="card-desc">既专业又不失女性魅力，适合日常办公与商务出行的穿搭方案。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/topic2/400/500" alt="专题" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">夏日清凉计划</h3>
+                            <p class="card-desc">如何在炎热天气里保持清凉与时尚，探索轻薄材质的穿搭奥秘。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/topic3/400/500" alt="专题" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">街拍达人秀</h3>
+                            <p class="card-desc">跟随镜头走进街头，发现那些不期而遇的时尚灵感。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门标签</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">黑丝</a>
+                        <a href="#" class="tag">长腿</a>
+                        <a href="#" class="tag">穿搭</a>
+                        <a href="#" class="tag">写真</a>
+                        <a href="#" class="tag">街拍</a>
+                        <a href="#" class="tag">高跟鞋</a>
+                        <a href="#" class="tag">连衣裙</a>
+                        <a href="#" class="tag">时尚</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">本周排行</h3>
+                    <ul class="hot-list">
+                        <li><a href="#"><span class="rank">01</span> 绝美腿模私房照</a></li>
+                        <li><a href="#"><span class="rank">02</span> 丝袜与高跟鞋的诱惑</a></li>
+                        <li><a href="#"><span class="rank">03</span> 欧美街拍精选</a></li>
+                        <li><a href="#"><span class="rank">04</span> 日系清新风格</a></li>
+                        <li><a href="#"><span class="rank">05</span> 高级灰穿搭指南</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">关于我们</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">
+                        本站致力于分享高质量的美图与时尚资讯。所有图片均来源于网络，版权归原作者所有。如有侵犯您的权益，请联系我们删除。
+                    </p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>黑丝美图</h4>
+                <p>专注视觉分享，打造最专业的时尚图片社区。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于本站</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系合作</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>友情链接</h4>
+                <ul>
+                    <li><a href="#">时尚资讯</a></li>
+                    <li><a href="#">摄影艺术</a></li>
+                    <li><a href="#">生活方式</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 黑丝美女美图. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
