@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="伊利丹·怒风是魔兽世界中最具争议与魅力的角色之一。本站提供伊利丹的背景故事、角色解析、经典台词以及游戏攻略，深入探索这个背叛者与救世主的双重身份。">
+    <meta name="keywords" content="魔兽世界,伊利丹,怒风,伊利丹·怒风,魔兽世界攻略,艾泽拉斯,魔兽角色">
+    <title>伊利丹-魔兽世界怒风传奇与深度解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-orange: #ff8c00;
+            --primary-red: #a00;
+            --bg-dark: #0a0a0c;
+            --bg-panel: #16161a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #333;
+            --font-stack: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(10, 10, 12, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(10,10,12,0.3), var(--bg-dark)), 
+                        url('https://picsum.photos/seed/demonhunter/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+
+        .hero h1 .subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-orange);
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-orange);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ffaa33;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary-orange);
+        }
+
+        /* Character Profile */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .profile-card {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: sepia(30%) contrast(110%);
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            background-color: rgba(255, 140, 0, 0.1);
+            color: var(--primary-orange);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+
+        .quote-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-left: 3px solid var(--primary-red);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 20px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            left: 14px;
+            top: 15px;
+            background-color: var(--bg-dark);
+            border: 2px solid var(--primary-orange);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--primary-orange);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Story Highlights */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background-color: var(--bg-panel);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .story-body {
+            padding: 20px;
+        }
+
+        .story-body h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .story-body p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            font-size: 0.9rem;
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-img {
+                height: 250px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>⚔️</span> <span>伊利丹·怒风</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#profile" class="active">角色档案</a></li>
+                    <li><a href="#story">恩怨情仇</a></li>
+                    <li><a href="#stats">数据统计</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="subtitle">The Betrayer / The Saviour</span>
+                <h1>伊利丹·怒风</h1>
+                <p>“世界需要英雄，但往往英雄不是我们想象的那样。”</p>
+                <a href="#profile" class="btn">探索他的传奇</a>
+            </div>
+        </section>
+
+        <section id="profile" class="container">
+            <h2 class="section-title">角色档案</h2>
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <img src="https://picsum.photos/seed/ilidan_face/400/400" alt="伊利丹形象" class="profile-img">
+                </div>
+                <div class="profile-info">
+                    <h3>黑暗泰坦之子 / 暗影猎手</h3>
+                    <div class="tags">
+                        <span class="tag">暗夜精灵</span>
+                        <span class="tag">恶魔猎手</span>
+                        <span class="tag">艾瑞达</span>
+                        <span class="tag">被放逐者</span>
+                    </div>
+                    <p>伊利丹·怒风是艾泽拉斯历史上最具争议与悲剧色彩的人物之一。作为暗夜精灵王子，他因试图使用恶魔力量拯救族群而遭到双胞胎兄弟玛法里奥的囚禁。重获自由后，他自称“黑暗泰坦”，建立暗影议会，并在燃烧军团入侵的危急关头，站在了人类联盟与暗夜精灵德鲁伊的对立面，只为获得足够的力量去对抗燃烧军团。</p>
+                    
+                    <div class="quote-box">
+                        “你们在为生存而战，而我在为胜利而战。”
+                    </div>
+                    
+                    <p>尽管他手段残忍、野心勃勃，但正是他独自一人守卫了黑暗之门，为联盟与部落的联军争取了至关重要的时间。从被世人唾弃的“背叛者”，到被尊称为“救世主”的伊利丹，他的命运始终在救赎与毁灭之间摇摆。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="container">
+            <h2 class="section-title">恩怨情仇</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">上古之战时期</div>
+                    <div class="timeline-content">
+                        <h3>背叛与囚禁</h3>
+                        <p>伊利丹试图使用萨格拉斯之眼吸收恶魔力量，但被泰兰德和玛法里奥发现。他因此被兄弟囚禁在黑暗神殿，一关就是一万年。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">第一次兽人战争</div>
+                    <div class="timeline-content">
+                        <h3>黑暗之门开启</h3>
+                        <p>兽人通过黑暗之门入侵艾泽拉斯，伊利丹趁乱逃脱。他前往外域，将破碎者军团改组为暗影议会，并开始寻找萨格拉斯之眼。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">第二次兽人战争</div>
+                    <div class="timeline-content">
+                        <h3>血精灵的诞生</h3>
+                        <p>伊利丹在扭曲虚空中与恶魔领主基尔加丹达成交易，获得了恶魔之血。他的兄弟和恋人泰兰德被感染，但他未能成功拯救她们。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">燃烧的远征</div>
+                    <div class="timeline-content">
+                        <h3>黑暗神殿之战</h3>
+                        <p>联盟与部落组成联军远征外域，最终在黑暗神殿击败了伊利丹。他临死前留下了那句振聋发聩的预言：“我即是……复仇。”</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">巫妖王之怒</div>
+                    <div class="timeline-content">
+                        <h3>灵魂的救赎</h3>
+                        <p>在诺森德，阿尔萨斯召唤了伊利丹的灵魂。为了获得击败巫妖王的勇气，伊利丹最终帮助玩家击败了阿尔萨斯。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highlights" class="container">
+            <h2 class="section-title">关键战役与成就</h2>
+            <div class="story-grid">
+                <article class="story-card">
+                    <img src="https://picsum.photos/seed/demon_swing/400/250" alt="恶魔之击" class="story-img">
+                    <div class="story-body">
+                        <h3>恶魔之击</h3>
+                        <p>伊利丹获得的一把神器战锤，上面镶嵌着破碎虚空之核。这把武器能释放出强大的暗影能量，对恶魔和亡灵造成毁灭性打击。</p>
+                        <a href="#" class="read-more">查看详情 &rarr;</a>
+                    </div>
+                </article>
+                <article class="story-card">
+                    <img src="https://picsum.photos/seed/twins/400/250" alt="泰兰德与玛法里奥" class="story-img">
+                    <div class="story-body">
+                        <h3>无法逾越的羁绊</h3>
+                        <p>尽管伊利丹与泰兰德的爱情充满波折，但泰兰德从未真正放弃过他。在许多关键时刻，她的犹豫都成为了伊利丹悲剧命运的关键转折点。</p>
+                        <a href="#" class="read-more">查看详情 &rarr;</a>
+                    </div>
+                </article>
+                <article class="story-card">
+                    <img src="https://picsum.photos/seed/legion/400/250" alt="军团再临" class="story-img">
+                    <div class="story-body">
+                        <h3>军团再临</h3>
+                        <p>在军团再临版本中，伊利丹的雕像成为了玩家的祭坛。他最终在破碎群岛的萨拉塔斯重获肉身，并再次成为玩家盟友。</p>
+                        <a href="#" class="read-more">查看详情 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="stats" class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h2>∞</h2>
+                    <p>被囚禁年限</p>
+                </div>
+                <div class="stat-item">
+                    <h2>2</h2>
+                    <p>主要阵营</p>
+                </div>
+                <div class="stat-item">
+                    <h2>1</h2>
+                    <p>终极信仰</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="container">
+            <h2 class="section-title">常见问题</h2>
+            <div style="max-width: 800px;">
+                <details style="margin-bottom: 15px; background: var(--bg-panel); padding: 15px; border-radius: 4px; cursor: pointer;">
+                    <summary style="font-weight: bold; color: var(--primary-orange);">伊利丹为什么被囚禁？</summary>
+                    <p style="margin-top: 10px; color: var(--text-muted);">因为他试图使用萨格拉斯之眼来吸收恶魔力量，这威胁到了艾泽拉斯的安全。他的兄弟玛法里奥认为这是恶魔的诱惑，因此将他囚禁。</p>
+                </details>
+                <details style="margin-bottom: 15px; background: var(--bg-panel); padding: 15px; border-radius: 4px; cursor: pointer;">
+                    <summary style="font-weight: bold; color: var(--primary-orange);">伊利丹是好人还是坏人？</summary>
+                    <p style="margin-top: 10px; color: var(--text-muted);">这是一个复杂的问题。他手段残忍，背叛了族人。但他也是唯一一个独自对抗燃烧军团、为全艾泽拉斯争取时间的人。这种复杂性正是他成为传奇的原因。</p>
+                </details>
+                <details style="margin-bottom: 15px; background: var(--bg-panel); padding: 15px; border-radius: 4px; cursor: pointer;">
+                    <summary style="font-weight: bold; color: var(--primary-orange);">伊利丹在哪里可以见到？</summary>
+                    <p style="margin-top: 10px; color: var(--text-muted);">在《魔兽世界》的“军团再临”资料片中，伊利丹是主要剧情角色。在“争霸艾泽拉斯”及之后的版本中，他作为典狱长（Mawsworn）成为主要的反派之一。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于伊利丹</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        致敬暴雪娱乐《魔兽世界》中的经典角色。本站为玩家提供角色背景、剧情解析与游戏资讯。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资料</h4>
+                    <ul>
+                        <li><a href="#">魔兽世界官方网站</a></li>
+                        <li><a href="#">魔兽世界 Wiki</a></li>
+                        <li><a href="#">暴雪游戏大厅</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">艾泽拉斯地理</a></li>
+                        <li><a href="#">魔兽编年史</a></li>
+                        <li><a href="#">魔兽世界音乐</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 魔兽世界角色解析站. All Rights Reserved. 非官方网站，内容仅供学习参考。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
