@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doujin 资源聚合平台，提供同人志下载、同人创作展示及社区交流，涵盖动漫、游戏、小说等多领域同人作品。">
+    <meta name="keywords" content="Doujin,同人志,同人下载,同人社区,二次元同人,同人创作">
+    <title>Doujin-同人志下载与创作社区平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --bg-color: #f9f9fc;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5649c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px 0 0 50px;
+        }
+
+        .search-bar button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Categories */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--secondary-color);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Works Grid */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .work-cover {
+            width: 100%;
+            height: 300px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .work-card:hover .work-cover img {
+            transform: scale(1.05);
+        }
+
+        .work-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .work-info {
+            padding: 1rem;
+        }
+
+        .work-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .work-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .work-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-number {
+            width: 24px;
+            height: 24px;
+            background: var(--bg-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .rank-list li:nth-child(1) .rank-number { background: #ff7675; color: white; }
+        .rank-list li:nth-child(2) .rank-number { background: #fdcb6e; color: white; }
+        .rank-list li:nth-child(3) .rank-number { background: #fab1a0; color: white; }
+
+        .rank-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .rank-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 3rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: var(--text-light);
+            display: none;
+            padding-left: 1rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: #b2bec3;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .search-bar input {
+                border-radius: 8px;
+            }
+
+            .search-bar button {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                Doujin<span>Hub</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">漫画同人</a></li>
+                    <li><a href="#">游戏衍生</a></li>
+                    <li><a href="#">原创小说</a></li>
+                    <li><a href="#">作者专区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">投稿</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>发现无限创意的二次元世界</h1>
+            <p>DoujinHub 是专注于同人志、衍生创作与独立游戏的资源分享社区，连接创作者与爱好者。</p>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索作品、作者或标签...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Main Content -->
+        <main>
+            <section>
+                <h2 class="section-title">热门分类</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <span class="category-icon">🎨</span>
+                        <div class="category-name">漫画同人</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">🎮</span>
+                        <div class="category-name">游戏衍生</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">📚</span>
+                        <div class="category-name">轻小说</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">🎵</span>
+                        <div class="category-name">音乐同人</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">👗</span>
+                        <div class="category-name">Cosplay</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">⚙️</span>
+                        <div class="category-name">工具软件</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 class="section-title" style="margin-bottom: 0;">本周热门作品</h2>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">查看更多 &rarr;</a>
+                </div>
+                <div class="works-grid">
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <span class="work-tag">漫画</span>
+                            <img src="https://picsum.photos/seed/doujin1/300/400" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">蔚蓝档案：夏日回响</h3>
+                            <div class="work-meta">
+                                <span>作者：Team Blue</span>
+                                <span>更新于：2天前</span>
+                            </div>
+                            <div class="work-stats">
+                                <span class="stat-item">👁 12.5k</span>
+                                <span class="stat-item">⬇ 3.2k</span>
+                                <span class="stat-item">❤ 890</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <span class="work-tag">小说</span>
+                            <img src="https://picsum.photos/seed/doujin2/300/400" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">赛博朋克：边缘行者同人短篇</h3>
+                            <div class="work-meta">
+                                <span>作者：NeonWriter</span>
+                                <span>更新于：5小时前</span>
+                            </div>
+                            <div class="work-stats">
+                                <span class="stat-item">👁 8.2k</span>
+                                <span class="stat-item">⬇ 1.5k</span>
+                                <span class="stat-item">❤ 420</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <span class="work-tag">游戏</span>
+                            <img src="https://picsum.photos/seed/doujin3/300/400" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">原神：提瓦特美食图鉴</h3>
+                            <div class="work-meta">
+                                <span>作者：GenshinFoodie</span>
+                                <span>更新于：1周前</span>
+                            </div>
+                            <div class="work-stats">
+                                <span class="stat-item">👁 45k</span>
+                                <span class="stat-item">⬇ 10k</span>
+                                <span class="stat-item">❤ 2.1k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <span class="work-tag">漫画</span>
+                            <img src="https://picsum.photos/seed/doujin4/300/400" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">崩坏：星穹铁道 - 姬子角色补完计划</h3>
+                            <div class="work-meta">
+                                <span>作者：SparkleFan</span>
+                                <span>更新于：3天前</span>
+                            </div>
+                            <div class="work-stats">
+                                <span class="stat-item">👁 18.3k</span>
+                                <span class="stat-item">⬇ 5.6k</span>
+                                <span class="stat-item">❤ 980</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <span class="work-tag">音乐</span>
+                            <img src="https://picsum.photos/seed/doujin5/300/400" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">东方Project - 旧都的雨</h3>
+                            <div class="work-meta">
+                                <span>作者：RemiliaArtist</span>
+                                <span>更新于：2天前</span>
+                            </div>
+                            <div class="work-stats">
+                                <span class="stat-item">👁 6.7k</span>
+                                <span class="stat-item">⬇ 2.1k</span>
+                                <span class="stat-item">❤ 330</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <span class="work-tag">Cosplay</span>
+                            <img src="https://picsum.photos/seed/doujin6/300/400" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">Project Sekai - 25-ji, Nightcord de.</h3>
+                            <div class="work-meta">
+                                <span>作者：MikuCosplay</span>
+                                <span>更新于：4小时前</span>
+                            </div>
+                            <div class="work-stats">
+                                <span class="stat-item">👁 22k</span>
+                                <span class="stat-item">⬇ 8.9k</span>
+                                <span class="stat-item">❤ 1.5k</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">投稿指南</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">
+                    欢迎上传您的同人创作作品。请确保您拥有作品的完整版权或已获得原作者授权。
+                </p>
+                <ul style="font-size: 0.85rem; color: var(--text-light);">
+                    <li style="margin-bottom: 0.5rem;">✓ 支持 JPG, PNG, PDF 格式</li>
+                    <li style="margin-bottom: 0.5rem;">✓ 单个文件大小不超过 500MB</li>
+                    <li style="margin-bottom: 0.5rem;">✓ 请填写准确的标签和简介</li>
+                </ul>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">开始上传</button>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">热门标签</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <a href="#" style="background: #f1f2f6; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: var(--text-light);">#BL</a>
+                    <a href="#" style="background: #f1f2f6; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: var(--text-light);">#GL</a>
+                    <a href="#" style="background: #f1f2f6; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: var(--text-light);">#穿越</a>
+                    <a href="#" style="background: #f1f2f6; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: var(--text-light);">#恶搞</a>
+                    <a href="#" style="background: #f1f2f6; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: var(--text-light);">#全年龄</a>
+                    <a href="#" style="background: #f1f2f6; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: var(--text-light);">#同人音乐</a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">编辑推荐</h3>
+                <ul class="rank-list">
+                    <li>
+                        <div class="rank-number">1</div>
+                        <div class="rank-info">
+                            <h4>进击的巨人：最终章同人</h4>
+                            <span>作者：SnK_Lover</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rank-number">2</div>
+                        <div class="rank-info">
+                            <h4>鬼灭之刃：无限列车篇番外</h4>
+                            <span>作者：TanjiroDraw</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rank-number">3</div>
+                        <div class="rank-info">
+                            <h4>赛博朋克2077：霓虹夜曲</h4>
+                            <span>作者: CyberArtist</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title" style="text-align: center;">常见问题 (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">什么是 Doujin (同人) 创作？</div>
+                <div class="faq-answer">
+                    Doujin 指的是由业余爱好者（非官方公司）创作的非商业性作品，通常基于现有的商业作品进行二次创作，如同人志、同人音乐、同人游戏等。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">上传作品需要付费吗？</div>
+                <div class="faq-answer">
+                    本平台目前完全免费向用户开放。创作者上传作品是为了分享创意和获取社区反馈，所有上传内容仅供学习交流使用。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如果发现盗版内容怎么办？</div>
+                <div class="faq-answer">
+                    如果您发现平台上有侵犯版权的内容，请立即通过“举报”按钮联系我们，我们会尽快处理并删除违规内容。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何成为平台的签约作者？</div>
+                <div class="faq-answer">
+                    当您在社区内积累了一定的粉丝基础和优质作品后，可以申请加入我们的创作者计划，获得更多的曝光机会和专属权益。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 1rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                    DoujinHub
+                </div>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    致力于为全球同人爱好者提供一个安全、友好、高质量的创作与分享平台。让创意无界，让热爱有家。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>探索</h4>
+                <ul>
+                    <li><a href="#">最新发布</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                    <li><a href="#">作者专栏</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>社区</h4>
+                <ul>
+                    <li><a href="#">投稿指南</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <div style="display: flex; gap: 10px;">
+                    <div style="width: 36px; height: 36px; background: #444; border-radius: 50%; display: flex; align-items: center; justify-content: center;">WB</div>
+                    <div style="width: 36px; height: 36px; background: #444; border-radius: 50%; display: flex; align-items: center; justify-content: center;">WX</div>
+                    <div style="width: 36px; height: 36px; background: #444; border-radius: 50%; display: flex; align-items: center; justify-content: center;">TG</div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 DoujinHub. All rights reserved. 本站内容仅供交流学习使用，不代表本站立场。
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+  </html>
