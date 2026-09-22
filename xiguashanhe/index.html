@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="西瓜山河豚鬼 - 深度探索日本民俗传说与妖怪文化的在线百科，收录河豚鬼、河童等水域妖怪的起源、传说故事及文化寓意。">
+    <meta name="keywords" content="西瓜山河豚鬼,河豚鬼,日本妖怪,河童,民俗传说,水域妖怪">
+    <title>西瓜山河豚鬼-日本民俗传说与水域妖怪文化百科</title>
+    <style>
+        :root {
+            --primary-color: #2c5f2d;
+            --secondary-color: #97bc62;
+            --accent-color: #e9c46a;
+            --text-dark: #2b2d42;
+            --text-light: #6c757d;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a1f 100%);
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: -3rem auto 2rem;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Intro Card */
+        .intro-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .intro-card p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Grid Layout */
+        .grid-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+            .nav-container nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Content Area */
+        .content-area h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+        }
+
+        .article-list article {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .article-list article:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .article-list h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .article-list p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .sidebar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .category-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .count {
+            background: #eee;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Mythology Section */
+        .mythology-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .mythology-section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .myth-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .myth-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            width: 280px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .myth-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .myth-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: var(--bg-card);
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #f1f1f1;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+            background: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 200px;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: #aaa;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Utility */
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">西瓜<span>山河豚鬼</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#intro">传说起源</a></li>
+                    <li><a href="#types">常见种类</a></li>
+                    <li><a href="#stories">经典故事</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>探索水域的神秘传说</h1>
+            <p>深入解析日本民间传说中的“西瓜山河豚鬼”文化，了解河童、河豚与水域妖怪的千面传说。</p>
+            <div class="hero-tags">
+                <span class="tag">民俗研究</span>
+                <span class="tag">妖怪图鉴</span>
+                <span class="tag">日本文化</span>
+                <span class="tag">水域传说</span>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Intro Section -->
+            <section id="intro" class="intro-card">
+                <h2>关于“西瓜山河豚鬼”</h2>
+                <p>“西瓜山河豚鬼”并非单一的实体生物，而是日本民间传说中与水域、季节变换紧密相关的文化符号集合。它融合了<strong>“河童”</strong>（水精怪）的形象特征与<strong>“河豚”</strong>（鱼类）的生物特性，象征着水域生态的神秘与生命力。</p>
+                <p>在传统民俗学中，这类妖怪往往出现在夏秋之交的水边，既是孩童眼中的玩伴，也是渔民口中的警告。它们代表了人类对自然力量的敬畏，以及对未知水域的探索欲。</p>
+            </section>
+
+            <!-- Main Content Grid -->
+            <div class="grid-section">
+                <div class="content-area">
+                    <h3>经典传说与分类</h3>
+                    <div class="article-list">
+                        <article>
+                            <h4>河童：水中的引路人</h4>
+                            <p>作为最著名的水域妖怪，河童（Kappa）通常被描述为头顶有盘状凹槽的猴子状生物。在“西瓜山河豚鬼”的语境下，它们往往扮演着引导迷途旅人的角色，但也常因贪食（喜欢生洋葱或人类的头发）而引发趣闻。</p>
+                            <a href="#" class="read-more">阅读详情 &rarr;</a>
+                        </article>
+                        <article>
+                            <h4>河豚妖怪：愤怒的防御者</h4>
+                            <p>不同于河童的狡黠，河豚妖怪象征着水域的愤怒。当水质受到污染或遭到破坏时，它们会膨胀身体并露出尖刺，警告人类不要靠近。这种形象反映了古人对生态平衡的朴素认知。</p>
+                            <a href="#" class="read-more">阅读详情 &rarr;</a>
+                        </article>
+                        <article>
+                            <h4>西瓜河童：夏日的丰收象征</h4>
+                            <p>在一些地方的传说中，西瓜河童是夏季的守护神。它们会藏匿西瓜，只有在人们表现出友善或分享食物时才会现身。这种形象将农作物与妖怪文化结合，体现了农耕社会的祈愿。</p>
+                            <a href="#" class="read-more">阅读详情 &rarr;</a>
+                        </article>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <h3>妖怪图鉴分类</h3>
+                    <ul class="category-list">
+                        <li><a href="#"><span>水域类</span> <span class="count">12</span></a></li>
+                        <li><a href="#"><span>农耕类</span> <span class="count">8</span></a></li>
+                        <li><a href="#"><span>季节类</span> <span class="count">5</span></a></li>
+                        <li><a href="#"><span>神兽类</span> <span class="count">15</span></a></li>
+                        <li><a href="#"><span>异兽类</span> <span class="count">6</span></a></li>
+                    </ul>
+                </aside>
+            </div>
+
+            <!-- Featured Mythology -->
+            <section class="mythology-section">
+                <h2>水域传说核心概念</h2>
+                <div class="myth-cards">
+                    <div class="myth-card">
+                        <h4>头顶之碟</h4>
+                        <p>传说中所有水域妖怪头顶都有一个盛水的碟子，若水干则法力尽失。这是对生命之源的隐喻。</p>
+                    </div>
+                    <div class="myth-card">
+                        <h4>引诱与警告</h4>
+                        <p>它们既是诱惑人心的存在，也是警告人类破坏自然的严厉使者。</p>
+                    </div>
+                    <div class="myth-card">
+                        <h4>共生关系</h4>
+                        <p>在传统观念中，人与妖怪并非完全对立，而是通过祭祀和礼仪保持微妙的共生关系。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="faq-section">
+                <h3>常见问题解答</h3>
+                <div class="faq-item">
+                    <div class="faq-question">西瓜山河豚鬼是真的存在吗？ <span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">从科学角度来看，它们是日本民间传说和民俗文化的产物，代表了古人对自然界未解之物的想象。但在文化传承中，它们是真实存在的精神象征。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何区分河童和河豚妖怪？ <span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">河童通常被描绘为拥有四只手、猴子身体和乌龟壳，而河豚妖怪则更接近于巨大的河豚或具有鱼类的特征。它们在性格和职能上也截然不同。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">在哪些地方最容易见到这些传说？ <span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">主要分布在日本本州岛的中部地区、河流沿岸的古老村落以及与夏季祭祀相关的庆典活动中。</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">投稿指南</a>
+            <a href="#">隐私政策</a>
+            <a href="#">联系站长</a>
+        </div>
+        <p>© 2023 西山河豚鬼文化百科. All Rights Reserved.</p>
+        <p class="copyright">致力于传播日本民俗文化与自然传说</p>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
